@@ -1,4 +1,5 @@
 //ik this is a lottt but whateverrr
+/*
 class Solution {
   public:
     char getMaxOccuringChar(string& s) {
@@ -35,5 +36,29 @@ class Solution {
         
     
         
+    }
+};
+*/
+class Solution {
+  public:
+    char getMaxOccuringChar(string& s) {
+        unordered_map<char,int> freq;
+        
+        for(auto ch:s){
+            freq[ch]++;
+        }
+        int maxfreq=0;
+        int ans='z';
+        
+        for(auto p:freq){
+            if(p.second>maxfreq){
+                maxfreq=p.second;
+                ans=p.first;
+            }
+            else if(p.second==maxfreq && p.first<ans){
+                ans=p.first;
+            }
+        }
+        return ans;
     }
 };
