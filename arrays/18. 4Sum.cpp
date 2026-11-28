@@ -4,6 +4,7 @@ public:
         sort(nums.begin(),nums.end());
         int n=nums.size();
         vector<vector<int>> ans;
+        if(n<4) return ans;
         for(int i=0;i<n-3;i++){
             if(i>0 && nums[i]==nums[i-1] ) continue;
             if(((long long) nums[i]+nums[i+1]+nums[i+2]+nums[i+3])>target) break;
